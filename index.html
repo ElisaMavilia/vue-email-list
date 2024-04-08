@@ -13,9 +13,10 @@
 </head>
 <body>
     <div id="app">
-        <div class="mt-4" v-if="randomEmails.length < 10"> <i class="ms-3 fa-solid fa-spinner fa-spin"></i> Loading emails generator</div> <!-- condizione: stampa se la lunghezza dell'array è minore di 10  -->
+        <div class="mt-4" v-if="randomEmails.length < 10"> <i class="ms-3 fa-solid fa-spinner fa-spin"></i> Loading email generator</div> <!-- condizione: stampa se la lunghezza dell'array è minore di 10  -->
             <ul class="mt-3" v-else> <!-- v-else evita che gli elementi appaiano uno per volta -->
-                <li v-for="(item,index) in randomEmails">{{item}}</li> <!-- v-for + item per stampare le email -->
+                <li v-for="(item,index) in randomEmails" v-if="!loading">{{item}}</li> <!-- v-for + item per stampare le email -->
+                <span v-else><i class="ms-3 fa-solid fa-spinner fa-spin"></i> Loading</span>
             </ul>
         <button @click="getRandomEmails" type="button" class="btn btn-success ms-4 mt-2">Generate</button>
     </div>
