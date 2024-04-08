@@ -13,8 +13,9 @@
 </head>
 <body>
     <div id="app">
-        <ul v-for="(item,index) in randomEmail">
+        <ul v-for="(item,index) in randomEmails">
             <li>{{item}}</li>
         </ul>
+        <button @click="getRandomEmails" type="button" class="btn btn-dark">Generate</button>
     </div>
 </body>
